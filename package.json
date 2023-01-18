@@ -1,0 +1,50 @@
+{
+  "name": "rbx-discord",
+  "version": "5.4.0",
+  "description": "",
+  "main": "./dist/lib/index.js",
+  "types": "./dist/lib/index.d.ts",
+  "module": "./esm.mjs",
+  "exports": {
+    ".": {
+      "types": "./dist/lib/index.d.ts",
+      "require": "./dist/lib/index.js",
+      "import": "./esm.mjs"
+    }
+  },
+  "scripts": {
+    "lint": "eslint lib --ext .ts",
+    "lint:fix": "eslint lib --ext .ts --fix",
+    "prepublishOnly": "node scripts/build",
+    "test:build": "npm run prepublishOnly",
+    "test:esm": "node --no-warnings --no-deprecation --experimental-specifier-resolution=node esm.mjs",
+    "test:docs": "npm i --no-save --ignore-scripts typedoc typedoc-plugin-extras typedoc-plugin-rename-defaults && node scripts/doc-test.js && npx --yes typedoc"
+  },
+  "devDependencies": {
+    "@favware/npm-deprecate": "^1.0.5",
+    "@types/node": "^18.11.9",
+    "@types/pako": "^2.0.0",
+    "@types/ws": "^8.5.3",
+    "@typescript-eslint/eslint-plugin": "^5.43.0",
+    "@typescript-eslint/parser": "^5.43.0",
+    "eslint": "^8.27.0",
+    "eslint-plugin-import-newlines": "^1.2.3",
+    "eslint-plugin-jsdoc": "^39.6.2",
+    "eslint-plugin-json": "^3.1.0",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
+    "eslint-plugin-unicorn": "^44.0.2",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "typescript": "^4.9.3"
+  },
+  "dependencies": {
+    "@rbxdiscord/roblox": "^2.0.0",
+    "undici": "^5.12.0",
+    "ws": "^8.11.0"
+  },
+  "optionalDependencies": {
+    "@discordjs/voice": "^0.13.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
